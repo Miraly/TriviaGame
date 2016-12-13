@@ -1,0 +1,45 @@
+body {
+	background-image: url(../images/glass.png), url(../images/Bg.jpg);
+	background-repeat: no-repeat, no-repeat;
+	background-position: right top, left top;
+	background-color: black;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #fff;
+}
+
+.title {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+#lineOne {
+	color: #fff;
+	font-size: 70px;
+	line-height: 0.6;
+}
+
+#lineTwo {
+	color: #978a49;
+	font-size: 70px;
+}
+
+.triviaQuestion {
+	width: 40%;
+	margin-top: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	font-size: 20px;
+}
+
+hr {
+	border: 1px solid #978a49;
+}
+
+ul {
+	margin-top: 20px;
+}
+
+li {
+	margin: 10px;
+}
