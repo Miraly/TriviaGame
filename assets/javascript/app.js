@@ -85,6 +85,13 @@ function newQuestion() {
 				setTimeout(newQuestion, 2000);
 			}
 		});
+	if (questionCount == 4) {
+		$(".triviaQuestion").empty();
+		$(".triviaQuestion").append($('<p>').html("End of Questions!"));
+		$(".triviaQuestion").append($('<p>').html("Correct answers:" + correctAnswersCount));
+		$(".triviaQuestion").append($('<p>').htmlhtml("Wrong answers:" + wrongAnswersCount));
+			
+	}
 };
 
 $(document).ready(function() {
