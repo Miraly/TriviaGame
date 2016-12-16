@@ -38,18 +38,21 @@ var arrayQuestions = [
 ];
 
 var questionCount = 0;
+var correctAnswersCount = 0;
+var wrongAnswersCount = 0;
 
 
 
-$(document).ready(function() {
-	var count = 30;
+function newQuestion() {
+	var count = 15;
 	var counter = setInterval(timer, 1000); 
 
 	function timer() {
   	count = count - 1;
   		if (count <= 0) {
      		clearInterval(counter);
-     	//counter ended, do something here
+     		$(".triviaQuestion").html("Time is Up!");
+			setTimeout(newQuestion, 2000);
 			return;
 		}
    	$("#timer").html( "Time remaining: " + count + " secs");
@@ -69,12 +72,22 @@ $(document).ready(function() {
 		
 			if (index.correctAnswer === $(this).data("answerID")) {
 				$(".triviaQuestion").html("Correct!");
+				clearInterval(counter);
+				correctAnswersCount++;
+				questionCount++;
+				setTimeout(newQuestion, 2000);
 								
 			} else {
 				$(".triviaQuestion").html("Sorry! The answer is " + index.answers.answer[index.correctAnswer]);
+				clearInterval(counter);
+				wrongAnswersCount++;
+				questionCount++;
+				setTimeout(newQuestion, 2000);
 			}
 		});
+};
+
+$(document).ready(function() {
+	newQuestion();
 		
-	
-	
 });
