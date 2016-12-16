@@ -1,45 +1,131 @@
-body {
-	background-image: url(../images/glass.png), url(../images/Bg.jpg);
-	background-repeat: no-repeat, no-repeat;
-	background-position: right top, left top;
-	background-color: black;
-	font-family: 'Source Sans Pro', sans-serif;
-	color: #fff;
+@media screen and (min-width: 640px) {
+	body {
+		background-image: url(../images/glass.png), url(../images/Bg.jpg);
+		background-repeat: no-repeat, no-repeat;
+		background-position: right top, left top;
+		background-color: black;
+		font-family: 'Source Sans Pro', sans-serif;
+		color: #fff;
+	}
+
+
+	.title {
+		margin-top: 50px;
+		margin-left: 50px;
+	}
+
+	#lineOne {
+		color: #fff;
+		font-size: 70px;
+		line-height: 0.6;
+	}
+
+	#lineTwo {
+		color: #978a49;
+		font-size: 70px;
+	}
+
+	.triviaQuestion {
+		width: 50%;
+		margin-top: 40px;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+		font-size: 20px;
+	}
+
+	#timer {
+		color: #978a49;
+	}
+
+	.question {
+		margin-top: 30px;
+		font-size: 22px;
+	}
+
+	hr {
+		border: 1px solid #978a49;
+	}
+
+	ul {
+		margin-top: 20px;
+	}
+
+	li {
+		margin: 15px;
+	} 
+	
+	.button:hover {
+		color: #978a49;
+		cursor: pointer;
+	}
+	
+	.button:active {
+		color: #978a49;
+	}
 }
 
-.title {
-	margin-top: 50px;
-	margin-left: 50px;
+@media screen and (max-width:640px) {
+	body {
+		background-image: url(../images/Bg.jpg);
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-color: black;
+		font-family: 'Source Sans Pro', sans-serif;
+		color: #fff;
+	}
+
+
+	.title {
+		margin-top: 50px;
+		margin-left: 50px;
+	}
+
+	#lineOne {
+		color: #fff;
+		font-size: 70px;
+		line-height: 0.6;
+	}
+
+	#lineTwo {
+		color: #978a49;
+		font-size: 70px;
+	}
+
+	.triviaQuestion {
+		width: 80%;
+		margin: 30px;
+		font-size: 20px;
+	}
+
+	#timer {
+		color: #978a49;
+	}
+
+	.question {
+		margin-top: 30px;
+		font-size: 22px;
+	}
+
+	hr {
+		border: 1px solid #978a49;
+	}
+
+	ul {
+		margin-top: 20px;
+	}
+
+	li {
+		margin: 15px;
+	}
+	
+	.button:hover {
+		color: #978a49;
+		cursor: pointer;
+	}
+	
+	.button:active {
+		color: #978a49;
+	}
 }
 
-#lineOne {
-	color: #fff;
-	font-size: 70px;
-	line-height: 0.6;
-}
-
-#lineTwo {
-	color: #978a49;
-	font-size: 70px;
-}
-
-.triviaQuestion {
-	width: 40%;
-	margin-top: 40px;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-	font-size: 20px;
-}
-
-hr {
-	border: 1px solid #978a49;
-}
-
-ul {
-	margin-top: 20px;
-}
-
-li {
-	margin: 10px;
-}
