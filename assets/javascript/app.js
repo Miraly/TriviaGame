@@ -44,6 +44,7 @@ var wrongAnswersCount = 0;
 
 
 function newQuestion() {
+		
 	var count = 15;
 	var counter = setInterval(timer, 1000); 
 
@@ -71,21 +72,28 @@ function newQuestion() {
 		clearInterval(counter);
 		
 			if (index.correctAnswer === $(this).data("answerID")) {
-				$(".triviaQuestion").html("Correct!");
-				clearInterval(counter);
+				$(".question").html("Correct!");
+				$("#answer1").empty();
+				$("#answer2").empty();
+				$("#answer3").empty();
+				$("#answer4").empty();
 				correctAnswersCount++;
 				questionCount++;
 				setTimeout(newQuestion, 2000);
 								
 			} else {
-				$(".triviaQuestion").html("Sorry! The answer is " + index.answers.answer[index.correctAnswer]);
-				clearInterval(counter);
+				$(".question").html("Sorry! The answer is " + index.answers.answer[index.correctAnswer]);
+				$("#answer1").empty();
+				$("#answer2").empty();
+				$("#answer3").empty();
+				$("#answer4").empty();
 				wrongAnswersCount++;
 				questionCount++;
 				setTimeout(newQuestion, 2000);
 			}
 		});
-	if (questionCount == 4) {
+	
+	if (questionCount === 4) {
 		$(".triviaQuestion").empty();
 		$(".triviaQuestion").append($('<p>').html("End of Questions!"));
 		$(".triviaQuestion").append($('<p>').html("Correct answers:" + correctAnswersCount));
