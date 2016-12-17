@@ -1,34 +1,34 @@
 var arrayQuestions = [
  {
-      question: "1 Other than water, what is the most consumed beverage?",
+      question: "Other than water, what is the most consumed beverage?",
   answers: {
             answer: ["coffee", "tea", "vodka", "juice"] 
     },
   correctAnswer: 1
  },
  {
-      question: "2 The Munich beer festival is held during what month?",
+      question: "The Munich beer festival is held during what month?",
   answers: {
              answer: ["August", "September", "October", "April"] 
     },
   correctAnswer: 2
  },
  {
-      question: "3 What whisky brand was advertised with two terrier dogs?",
+      question: "What whisky brand was advertised with two terrier dogs?",
   answers: {
              answer: ["Johnnie Walker", "Chivas Regal", "White Horse", "Black & White"] 
     },
   correctAnswer: 3
  },
  {
-      question: "4 What US state drinks the most alcohol per person?",
+      question: "What US state drinks the most alcohol per person?",
   answers: {
              answer: ["Nevada", "Alaska", "Texas", "Ohio"] 
     },
   correctAnswer: 0
  },
  {
-      question: "5 In their lifetime, the average Britain consumes 14,571 what?",
+      question: "In their lifetime, the average Britain consumes 14,571 what?",
   answers: {
              answer: ["water", "beer", "whisky", "milk"] 
     },
@@ -63,7 +63,7 @@ function renew() {
 
 function newQuestion() {
   
- var count = 5;
+ var count = 15;
  timer();
  counter = setInterval(timer, 1000);
 
@@ -72,6 +72,7 @@ function newQuestion() {
      clearInterval(counter);
        $(".question").html("Time is Up!");
        console.log("Time is Up!");
+		wrongAnswersCount++;
        renew();
 
    return;
