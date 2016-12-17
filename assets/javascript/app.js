@@ -1,34 +1,34 @@
 var arrayQuestions = [
 	{
-      question: "Other than water, what is the most consumed beverage?",
+      question: "1 Other than water, what is the most consumed beverage?",
 		answers: {
             answer: ["coffee", "tea", "vodka", "juice"] 
 				},
 		correctAnswer: 1
-},
+	},
 	{
-      question: "The Munich beer festival is held during what month?",
+      question: "2 The Munich beer festival is held during what month?",
 		answers: {
              answer: ["August", "September", "October", "April"] 
 				},
 		correctAnswer: 2
 	},
 	{
-      question: "What whisky brand was advertised with two terrier dogs?",
+      question: "3 What whisky brand was advertised with two terrier dogs?",
 		answers: {
              answer: ["Johnnie Walker", "Chivas Regal", "White Horse", "Black & White"] 
 				},
 		correctAnswer: 3
 	},
 	{
-      question: "What US state drinks the most alcohol per person?",
+      question: "4 What US state drinks the most alcohol per person?",
 		answers: {
              answer: ["Nevada", "Alaska", "Texas", "Ohio"] 
 				},
 		correctAnswer: 0
 	},
 	{
-      question: "In their lifetime, the average Britain consumes 14,571 what?",
+      question: "5 In their lifetime, the average Britain consumes 14,571 what?",
 		answers: {
              answer: ["water", "beer", "whisky", "milk"] 
 				},
@@ -45,15 +45,32 @@ var wrongAnswersCount = 0;
 
 function newQuestion() {
 		
-	var count = 15;
+	var count = 5;
 	var counter = setInterval(timer, 1000); 
 
 	function timer() {
   	count = count - 1;
   		if (count <= 0) {
      		clearInterval(counter);
-     		$(".triviaQuestion").html("Time is Up!");
-			setTimeout(newQuestion, 2000);
+     		$(".question").html("Time is Up!");
+			$("#answer1, #answer2, #answer3, #answer4").empty();
+			wrongAnswersCount++;
+			console.log(wrongAnswersCount);
+			
+			questionCount++;
+			console.log(questionCount);
+				if (questionCount === 5) {
+					$(".triviaQuestion").empty();
+					$(".triviaQuestion").append($('<p>').html("End of Questions!"));
+					$(".triviaQuestion").append($('<br>'));
+					$(".triviaQuestion").append($('<p>').html("Correct answers: " + correctAnswersCount));
+					$(".triviaQuestion").append($('<br>'));
+					$(".triviaQuestion").append($('<p>').html("Wrong answers: " + wrongAnswersCount));
+				} else {
+					setTimeout(newQuestion, 2000);
+				}
+			
+			
 			return;
 		}
    	$("#timer").html( "Time remaining: " + count + " secs");
@@ -73,34 +90,47 @@ function newQuestion() {
 		
 			if (index.correctAnswer === $(this).data("answerID")) {
 				$(".question").html("Correct!");
-				$("#answer1").empty();
-				$("#answer2").empty();
-				$("#answer3").empty();
-				$("#answer4").empty();
+				$("#answer1, #answer2, #answer3, #answer4").empty();
 				correctAnswersCount++;
+				console.log(correctAnswersCount);
 				questionCount++;
-				setTimeout(newQuestion, 2000);
-								
+				console.log(questionCount);
+					
+					if (questionCount === 5) {
+							$(".triviaQuestion").empty();
+							$(".triviaQuestion").append($('<p>').html("End of Questions!"));
+							$(".triviaQuestion").append($('<br>'));
+							$(".triviaQuestion").append($('<p>').html("Correct answers: " + correctAnswersCount));
+							$(".triviaQuestion").append($('<br>'));
+							$(".triviaQuestion").append($('<p>').html("Wrong answers: " + wrongAnswersCount));
+					} else {
+						setTimeout(newQuestion, 2000);
+					}
+				
+									
 			} else {
 				$(".question").html("Sorry! The answer is " + index.answers.answer[index.correctAnswer]);
-				$("#answer1").empty();
-				$("#answer2").empty();
-				$("#answer3").empty();
-				$("#answer4").empty();
+				$("#answer1, #answer2, #answer3, #answer4").empty();
 				wrongAnswersCount++;
+				console.log(wrongAnswersCount);
 				questionCount++;
-				setTimeout(newQuestion, 2000);
+				console.log(questionCount);
+					
+					if (questionCount === 5) {
+							$(".triviaQuestion").empty();
+							$(".triviaQuestion").append($('<p>').html("End of Questions!"));
+							$(".triviaQuestion").append($('<br>'));
+							$(".triviaQuestion").append($('<p>').html("Correct answers: " + correctAnswersCount));
+							$(".triviaQuestion").append($('<br>'));
+							$(".triviaQuestion").append($('<p>').html("Wrong answers: " + wrongAnswersCount));
+					} else {
+						setTimeout(newQuestion, 2000);
+					}
 			}
 		});
 	
-	if (questionCount === 4) {
-		$(".triviaQuestion").empty();
-		$(".triviaQuestion").append($('<p>').html("End of Questions!"));
-		$(".triviaQuestion").append($('<p>').html("Correct answers:" + correctAnswersCount));
-		$(".triviaQuestion").append($('<p>').htmlhtml("Wrong answers:" + wrongAnswersCount));
-			
-	}
-};
+	
+}
 
 $(document).ready(function() {
 	newQuestion();
